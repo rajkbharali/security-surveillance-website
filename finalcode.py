@@ -21,13 +21,14 @@ from imutils.video import WebcamVideoStream
 from imutils.video import FPS
 import psutil
 
-#sconnecting database..
+#connecting database..
+#add your database details
 
 mydb = mysql.connector.connect(
   host="localhost",
   user="project",
-  passwd="12qwaszx",
-  database="ip_webcam"
+  passwd="",
+  database=""
 )
 
 
@@ -129,17 +130,17 @@ if len(p)!=0:
             im=[]
             Labels = []
             
-            if os.path.exists("yolo-coco/9k.names"):
+            if os.path.exists("data/9k.names"):
                 print("")
-                with open("yolo-coco/coco.names") as k:
+                with open("data/coco.names") as k:
                     Labels = k.read().strip().split("\n")
             else:
                 print("no")
             np.random.seed(42)
             COLORS = np.random.randint(0, 255, size=(len(Labels), 3), dtype="uint8")
 
-            weightsPath = "/home/ubuntu/opencv/yolo-coco/yolov3.weights"
-            configPath = "/home/ubuntu/opencv/yolo-coco/yolov3.cfg"
+            weightsPath = "/home/ubuntu/opencv/data/yolov3.weights"
+            configPath = "/home/ubuntu/opencv/data/yolov3.cfg"
 
             #print("[INFO] loading YOLO from disk...")
             net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
