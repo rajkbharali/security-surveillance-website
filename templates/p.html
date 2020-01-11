@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=2" content="user-scalable=yes">
+<title>Display</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body
+{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #000;
+    margin: 0;
+    transition: margin-top 0.5s ease 0s;
+    display: block;
+}
+.img-responsive1
+{
+	display: block;
+    width: 64%;
+    margin-top: -2px;
+    height: auto;
+    margin-left: 200px;
+}
+.img-responsive2
+{
+	display: block;
+    width: 32%;
+    height: auto;
+    margin-left: 400px;
+}
+.img-responsive3
+{
+	display: block;
+    width: 21.5%;
+    height: auto;
+    margin-left: 500px;
+}
+.img-responsive4
+{
+	display: block;
+    width: 100%;
+    height: 625px;
+    
+}
+.img-responsive5
+{
+	display: block;
+    width: 100.22%;
+    height: 317.30px;
+    
+}
+.img-responsive6
+{
+	display: block;
+    width: 100.22%;
+    height: 201.5px;
+    
+}
+.img-responsive7
+{
+	display: block;
+    width: 100%;
+    height: 625px;
+    
+}
+.img-responsive8
+{
+	display: block;
+    width: 100%;
+    height: 307.50px;
+    
+}
+.img-responsive9
+{
+	display: block;
+    width: 100%;
+    height: 201.50px;   
+}
+.img-responsive10
+{
+    display: block;
+    width: 100%;
+    height: 148.8px;   
+}
+.img-responsive11
+{
+    display: block;
+    width: 100%;
+    height: 400px;
+    margin-top: 90px;    
+}
+.img-responsive12
+{
+    display: block;
+    width: 100%;
+    height: 307px;
+       
+}
+.img-responsive13
+{
+    display: block;
+    width: 100%;
+    height: 200px;    
+}
+.img-responsive14
+{
+    display: block;
+    width: 100%;
+    height: 148px;    
+}
+.img-responsive15
+{
+	display: block;
+    width: 100%;
+    height: 117px;
+}
+.img-responsive16
+{
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin-top: 150px;
+}
+.img-responsive17
+{
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    height: 270px;
+
+}
+.img-responsive18
+{
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+.img-responsive19
+{
+    display: block;
+    width: 100%;
+    height: 147px;
+}
+.img-responsive20
+{
+    display: block;
+    width: 102%
+
+}
+.col-md-12
+{
+    position: relative;
+    min-height: 1px;
+    padding: 10px;
+    margin: 0px;
+    
+}
+.col-lg-6
+{
+    position: relative;
+    min-height: 1px;
+    padding: 0px;
+    margin: 0px;
+}
+.col-lg-4
+{
+	position: relative;
+    min-height: 1px;
+    padding: 10px;
+    margin: 0px;
+}
+.col-lg-3
+{
+    position: relative;
+    min-height: 1px;
+    padding: 10px;
+    margin: 0px;
+}
+.col-lg-2
+{
+    position: relative;
+    min-height: 1px;
+    padding: 10px;
+    margin: 0px;
+}
+.col-lg-1
+{
+    position: relative;
+    min-height: 1px;
+    padding: 10px;
+    margin: 0px;
+}
+.col
+{	
+
+  	background-color: black;
+	border: 1px solid black;	
+}
+.no
+{
+    display: block;
+    width: 100.22%;
+    height: 317.30px;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 201px) (max-width: 800px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+	}
+.column {
+  
+  width: 50%;
+  padding: 0px;
+}
+.row
+{
+	max-width: 70%;
+}
+</style>
+
+</head>
+
+<body>
+<div class="container-fluid">
+<form  method="POST" >
+
+{% if column==1 and rows==1 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div clas="column">
+<div class="col-lg-12 col">
+<img src="{{url_for('video_feed',url1=item-1)}}" class=" img-responsive1" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"  alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-12 col" align="center"><br><br>
+<img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+{% if column==1 and rows==2 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-12 col">
+<img src="{{url_for('video_feed',url1=item-1)}}" class=" img-responsive2" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"  alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-12 col" align="center"><br><br>
+<img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+{% if column==1 and rows==3 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-12 col">
+<img src="{{url_for('video_feed',url1=item-1)}}" class=" img-responsive3" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"  alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-12 col" align="center"><br><br>
+<img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+{% if column==2 and rows==1 %} 
+{% for it in range(1,rows*2,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%} 
+<div class="col-lg-6 col" >
+	<img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive4" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"   alt="video is not availabe"/>
+	</div>
+	</div>
+	{%else%}
+	<div class="border border-dark">
+	<div  bgcolor="lightblue" class="col-md-6 col" align="center">
+        <img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>	
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==2 and rows==2%} 
+{% for it in range(1,rows*2,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="column "> 
+<div class="col-lg-6 col" >
+<img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive5" onclick="location.href=this.src;" />
+</div>
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-6 col" align="center">
+<img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>	
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==2 and rows==3 %} 
+{% for it in range(1,rows*2,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="column "> 
+	<div class="col-lg-6 col" >
+	<img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive6" onclick="location.href=this.src;" onclick="location.href=this.src;"/>
+	</div>
+	</div>
+	{%else%}
+	<div class="border border-dark">
+	<div  bgcolor="lightblue" class="col-md-6" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>	
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==3 and rows==1 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-4 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive7" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-4" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==3 and rows==2 %} 
+{% for it in range(1,rows*3,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-4 col"><img src="{{ url_for('video_feed', url1=item-1) }}" class="card-img-top img-responsive8" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="px-2 mt-2 col-md-4" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==3 and rows==3 %} 
+{% for it in range(1,rows*3,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-4 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive9" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="px-2 mt-2 col-md-4" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==3 and rows==4 %} 
+{% for it in range(1,rows*3,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-4 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive10" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="px-2 mt-2 col-md-4" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==4 and rows==1 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-3 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive11" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-3" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==4 and rows==2 %} 
+{% for it in range(1,rows*4,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-3 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive12" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-3" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==4 and rows==3 %} 
+{% for it in range(1,rows*4,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-3 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive13" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-md-3" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==4 and rows==4 %} 
+{% for it in range(1,rows*4,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-3 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive14" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-3" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==4 and rows==5 %} 
+{% for it in range(1,rows*4,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-3 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive15" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-3" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==6 and rows==1 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-2 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive16" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-2" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==6 and rows==2 %} 
+{% for it in range(1,rows*6,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-2 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive17" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-2" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==6 and rows==3 %} 
+{% for it in range(1,rows*6,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-2 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive18" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-2" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==6 and rows==4 %} 
+{% for it in range(1,rows*6,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-2 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive19" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-2" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==1 %} 
+{% for it in range(1,rows+1,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==2 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==3 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==4 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==5 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==6 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if column==12 and rows==7 %} 
+{% for it in range(1,rows*12,column) %}
+<div class="row">
+{% for item in range(1*it,it+column) %}
+{% if item<=url%}
+<div class="col-lg-1 col"><img src="{{url_for('video_feed',url1=item-1)}}" class="card-img-top img-responsive20" onclick="location.href=this.src;" onclick="location.href=this.src;" onerror="this.src='{{url_for('static',filename='img/no.jpg')}}';"alt="video is not availabe"  >
+</div>
+{%else%}
+<div class="border border-dark">
+<div  bgcolor="lightblue" class="col-lg-1" align="center"><img src="{{url_for('static',filename='img/no.jpg')}}" style="height: 295px;width: 100%;"/></div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+</form>
+</div>
+</body>
+</html>

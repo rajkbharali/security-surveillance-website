@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+<html>
+<head>
+{% block title%}  
+<title>Camera Information Update</title>
+{% endblock %}
+</head>
+<body bgcolor="#E6E6FA">
+{% block body %}
+<div id="container">
+
+<form  id="contact" action="{{ url_for('update1') }}" method="post" >
+<h3 style="margin-top: -5px;">Camera Update Form</h3>
+
+<fieldset>
+  <label >Serial No.</label>
+  <input type="text" name="no"  placeholder="Serial No."  
+  required value="{{t[0][0]}}" readonly>
+</fieldset>
+<fieldset> 
+  <label>Location</label> 
+  <input type="text" name="Location"  placeholder="Location" required value="{{t[0][1]}}" >
+</fieldset>
+<fieldset>
+  <label>IP-Address</label>
+  <input type="text" name="ip_address"  placeholder="IP-Address" required 
+  value="{{t[0][2]}}">
+</fieldset>
+<fieldset>
+  <label>Type Of Camera</label>
+  <input type="text" name="camera_info"  placeholder="Type Of Camera[Ipcam/Cam]" required value="{{t[0][3]}}">
+</fieldset>
+<fieldset>
+  <label>Status</label>
+  <input type="text" name="status"  placeholder="Status" required value="{{t[0][4]}}">
+</fieldset>
+<fieldset>
+  <button type="submit"  value="SUBMIT">Submit</button>
+</fieldset>
+</form>
+</div>
+{% endblock %}
+</body>
+</html> 
