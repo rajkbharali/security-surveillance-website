@@ -25,4 +25,8 @@ Download the following files into the "data" folder:
 9k.names, coco.names, yolov3.cfg, yolov3.weights
 (link:https://github.com/tianhai123/yolov3/tree/master/cfg)
 
+![](images/frame.jpg)
+
+Preview of a frame detetion
+
 
