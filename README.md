@@ -1,5 +1,11 @@
 # security-surveillance-website
 
+Real time camera streaming website for detecting Persons(Safe/Unsafe/Unknown: according to the faces stored in database)
+
+Age and Gender detection
+
+Get realtime Graph analysis based on the data gathered 
+
 1.PYTHON(3.6)
 
 2.Flask(1.1.1)
